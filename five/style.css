@@ -1,0 +1,56 @@
+header {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+body {
+    font-family: Arial;
+}
+
+.font-style-1 {
+    font-family: Verdana;
+}
+
+.font-style-2 {
+    font-family: 'Times New Roman';
+}
+
+.background {
+    background-image: url('https://jssstuniv.in/assets/img/logo/jssstulogo.png');
+    width: 100%;
+    height: 400px;
+    background-repeat: repeat;
+}
+
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+a:visited {
+    color: purple;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+a:active {
+    color: green;
+    text-decoration: underline;
+}
+
+.visible {
+        visibility: visible;
+      }
+
+.hidden {
+        visibility: hidden;
+      }  
+
+.visible:hover + .hidden {
+        visibility: visible;
+      }
