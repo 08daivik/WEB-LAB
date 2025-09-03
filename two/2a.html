@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Form</title>
+  </head>
+  <body>
+    <h1>Feedback Form</h1>
+    <form> 
+        Name: <input type="text" name="name" required />
+        <br />
+        <br />
+        USN: <input type="text" name="usn" required />
+        <br />
+        <br />
+        Email: <input type="email" name="email" required />
+        <br />
+        <br />
+        Gender : <input type="radio" name="gender" value="male" />Male
+        <input type="radio" name="gender" value="female" />Female
+        <br />
+        <br />
+        Semester: 
+        <select name="semester">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+        </select>
+        <br />
+        <br />
+        Feedback:
+        <br />
+        <textarea
+          name="feedback"
+          id="feedback"
+          cols="30"
+          rows="5"
+          placeholder="Feedback"
+        >
+        </textarea>
+        <br />
+        <br />
+        <br />
+        <input type="submit" value="Submit" />
+     
+    </form>
+  </body>
+</html>
