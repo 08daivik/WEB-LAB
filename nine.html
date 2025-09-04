@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form Validation (No Regex)</title>
+</head>
+<body>
+  <h2>Registration Page</h2>
+  <form onsubmit="return validateForm()">
+    <label>User ID: </label>
+    <input type="text" id="userid"><br><br>
+
+    <label>Name: </label>
+    <input type="text" id="name"><br><br>
+
+    <label>Password: </label>
+    <input type="password" id="password"><br><br>
+
+    <label>Email: </label>
+    <input type="text" id="email"><br><br>
+
+    <input type="submit" value="Register">
+  </form>
+
+  <script>
+    function validateForm() {
+      let userid = document.getElementById("userid").value;
+      let name = document.getElementById("name").value;
+      let password = document.getElementById("password").value;
+      let email = document.getElementById("email").value;
+
+      // i. User ID length
+      if (userid.length < 5 || userid.length > 12) {
+        alert("User ID must be between 5 and 12 characters.");
+        return false;
+      }
+
+      // ii. Name: only alphabets and min 15 chars
+      for (let i = 0; i < name.length; i++) {
+        let ch = name.charAt(i).toLowerCase();
+        if (!((ch >= 'a' && ch <= 'z') || ch === ' ')) {
+          alert("Name must contain only alphabets.");
+          return false;
+        }
+      }
+      if (name.length < 15) {
+        alert("Name must be at least 15 characters long.");
+        return false;
+      }
+
+      // iii. Password: 8 chars, uppercase, special char, number
+      if (password.length < 8) {
+        alert("Password must be at least 8 characters long.");
+        return false;
+      }
+      let hasUpper = false, hasDigit = false, hasSpecial = false;
+      let specials = "!@#$%^&*";
+      for (let i = 0; i < password.length; i++) {
+        let ch = password.charAt(i);
+        if (ch >= 'A' && ch <= 'Z') hasUpper = true;
+        if (ch >= '0' && ch <= '9') hasDigit = true;
+        if (specials.includes(ch)) hasSpecial = true;
+      }
+      if (!hasUpper || !hasDigit || !hasSpecial) {
+        alert("Password must include uppercase, digit, and special character.");
+        return false;
+      }
+
+      // iv. Email: should contain '@' and '.'
+      if (email.indexOf("@") === -1 || email.indexOf(".") === -1 || email.startsWith("@")) {
+        alert("Invalid email address.");
+        return false;
+      }
+
+      alert("Registration Successful!");
+      return true;
+    }
+  </script>
+</body>
+</html>
