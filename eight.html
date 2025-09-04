@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Best Two Test Average</title>
+</head>
+<body>
+  <h2>Test Average Calculator</h2>
+  <form action="#" onsubmit="return false;">
+    <p>
+      Register Number: 
+      <input type="text" id="regno" /><br /><br />
+      Subject Code: 
+      <input type="text" id="subcode" /><br /><br />
+      Marks Test 1: 
+      <input type="number" id="test1" /><br /><br />
+      Marks Test 2: 
+      <input type="number" id="test2" /><br /><br />
+      Marks Test 3: 
+      <input type="number" id="test3" /><br /><br />
+      <button onclick="calculateAverage()">Compute Average</button>
+    </p>
+  </form>
+
+  <script type="text/javascript">
+    function calculateAverage() {
+      // Get values
+      var regno = document.getElementById("regno").value;
+      var subcode = document.getElementById("subcode").value;
+      var t1 = document.getElementById("test1").value;
+      var t2 = document.getElementById("test2").value;
+      var t3 = document.getElementById("test3").value;
+
+      // Validation
+      if (regno === "" || subcode === "" || t1 === "" || t2 === "" || t3 === "") {
+        alert("All fields are required!");
+        return;
+      }
+      if (isNaN(t1) || isNaN(t2) || isNaN(t3)) {
+        alert("Marks must be numbers!");
+        return;
+      }
+
+      // Convert to numbers
+      t1 = parseFloat(t1);
+      t2 = parseFloat(t2);
+      t3 = parseFloat(t3);
+
+      if (t1 < 0 || t2 < 0 || t3 < 0) {
+        alert("Marks cannot be negative!");
+        return;
+      }
+
+      // Find best two
+      var marks = [t1, t2, t3];
+      marks.sort(function(a, b) { return b - a; }); // sort descending
+      var avg = (marks[0] + marks[1]) / 2;
+
+      // Show result
+      alert("Register No: " + regno + 
+            "\nSubject Code: " + subcode +
+            "\nAverage of Best Two Tests: " + avg);
+    }
+  </script>
+</body>
+</html>

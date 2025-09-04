@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation Example</title>
+</head>
+<body>
+  <h2>Student Form</h2>
+  <form id="myForm">
+    <label>Name: </label>
+    <input type="text" id="name"><br><br>
+
+    <label>Email: </label>
+    <input type="email" id="email"><br><br>
+
+    <label>Mobile No: </label>
+    <input type="number" id="mobile"><br><br>
+
+     <select id="gender"><br><br>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select><br><br>
+    
+
+    <label>Favorite Color: </label>
+    <input type="color" id="color"><br><br>
+
+    <button onclick="validateForm()">Submit</button><br><br>
+
+    <label>Result: </label><br>
+    <textarea id="output" rows="5" cols="40"></textarea>
+  </form>
+
+  <script>
+    function validateForm() {
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let mobile = document.getElementById("mobile").value;
+     let gender = document.getElementById("gender").value;
+      let color = document.getElementById("color").value;
+
+      // Validation
+      if (name === "" || email === "" || mobile === "" || gender==="") {
+        alert("Please fill all the fields!");
+        return;
+      }
+
+      // Combine data
+      let info = "Name: " + name + "\n" +
+                 "Email: " + email + "\n" +
+                 "Mobile: " + mobile + "\n" +
+                 "Gender: " + gender+ "\n" +
+                 "Favorite Color: " + color;
+
+      // Display inside textbox
+      document.getElementById("output").value = info;
+    }
+  </script>
+</body>
+</html>
